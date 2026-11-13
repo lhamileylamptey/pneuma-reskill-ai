@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pneuma Reskill AI</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0a1628">
+<meta name="description" content="Pneuma Reskill AI: understand AI exposure, discover career pathways and build a practical 90-day reskilling plan.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<style>
+:root{color-scheme:dark;--bg:#0a1628;--card:#12233f;--line:#25406b;--tx:#eef2f9;--mu:#9fb2d0;--gold:#f5b335;--teal:#2dd4bf;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:680px;margin:0 auto;padding:16px}
+header{display:flex;align-items:center;gap:12px;padding:8px 0 16px}
+h1{font-size:1.35rem;margin:0}h1 span{color:var(--gold)}
+.sub{color:var(--mu);font-size:.9rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+.steps{display:flex;gap:6px;margin-bottom:14px}.steps i{flex:1;height:4px;border-radius:2px;background:var(--line)}.steps i.on{background:var(--teal)}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,textarea,select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0d1c34;color:var(--tx);font:inherit}
+textarea{min-height:76px}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:13px 18px;cursor:pointer;background:var(--gold);color:#1a1200;width:100%;margin-top:14px}
+button.alt{background:transparent;color:var(--teal);border:1px solid var(--teal)}
+button:disabled{opacity:.5}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.plans{display:grid;gap:10px}.plan{border:1px solid var(--line);border-radius:14px;padding:12px}.plan.p{border-color:var(--gold)}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.price-card{background:#0d1c34;border:1px solid var(--line);border-radius:14px;padding:14px}.price-card.featured{border-color:var(--gold)}.price-card h3{margin:0 0 4px;color:var(--gold)}.price{font-size:1.35rem;font-weight:800}.muted{color:var(--mu);font-size:.85rem}.pill{display:inline-block;border:1px solid var(--teal);color:var(--teal);border-radius:20px;padding:2px 8px;font-size:.75rem}.authbox{border-top:1px solid var(--line);margin-top:14px;padding-top:12px}.authbox input{margin-top:8px}.auth-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.auth-actions button{margin-top:8px}.notice{font-size:.82rem;color:var(--mu);margin-top:8px}.success{color:var(--teal)}@media(max-width:420px){.pricing-grid{grid-template-columns:1fr}}
+.plan b{color:var(--gold)}
+#out h2,#out h3{color:var(--gold);margin:18px 0 6px;font-size:1.05rem}
+#out ul{padding-left:20px}#out{overflow-wrap:anywhere}
+.lock{border:1px dashed var(--gold);border-radius:14px;padding:12px;margin-top:12px}
+.hide{display:none}.err{color:#ff9b9b}
+small{color:var(--mu)}
+</style></head><body><main>
+<header>
+<svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#12233f" stroke="#25406b"/><path d="M24 7c1 7 9 10 9 20a9 9 0 0 1-18 0c0-5 3-7 4-11 2 2 3 4 3 6 3-4 3-9 2-15z" fill="#f5b335"/><path d="M24 24c1 3 4 4 4 8a4 4 0 0 1-8 0c0-3 3-5 4-8z" fill="#0a1628"/></svg>
+<div><h1>Pneuma <span>Reskill AI</span></h1><div class="sub">Reskill for the AI era. Your 90-day path to work that lasts.</div></div>
+</header>
+
+<section class="card" id="pricing">
+<b>Choose your Pneuma plan</b>
+<p class="sub">USD prices are displayed for international clarity. Paystack checkout for a Ghana-based business will charge in GHS; your card issuer may convert the amount to your card currency.</p>
+<div class="pricing-grid" style="margin-top:12px">
+ <div class="price-card"><h3>Free</h3><div class="price">$0</div><div class="muted">Basic career assessment and starter guidance.</div><span class="pill">Get started free</span></div>
+ <div class="price-card"><h3>Starter</h3><div class="price">$9.99 <small>/ month</small></div><div class="muted">$99 / year</div><ul class="muted"><li>Personalised career assessment</li><li>Skills-gap analysis</li><li>Full 90-day learning roadmap</li><li>CV and interview assets</li></ul><button class="buy" data-tier="starter" data-cycle="monthly">Choose monthly</button><button class="alt buy" data-tier="starter" data-cycle="annually">Choose annual</button></div>
+ <div class="price-card featured"><h3>Professional</h3><div class="price">$19.99 <small>/ month</small></div><div class="muted">$199 / year</div><ul class="muted"><li>Everything in Starter</li><li>Weekly AI coaching check-ins</li><li>Progress reviews and plan adjustments</li><li>Ongoing reskilling guidance</li></ul><button class="buy" data-tier="professional" data-cycle="monthly">Choose monthly</button><button class="alt buy" data-tier="professional" data-cycle="annually">Choose annual</button></div>
+ <div class="price-card"><h3>Business</h3><div class="price">$39.99 <small>/ month</small></div><div class="muted">$399 / year</div><ul class="muted"><li>Team skills assessments</li><li>Workforce skills-gap reports</li><li>Organisational reskilling recommendations</li></ul><span class="pill">Coming soon — team features in development</span></div>
+</div>
+<div class="authbox" id="authbox">
+ <b>Sign in or create an account to subscribe</b>
+ <input id="auth-email" type="email" autocomplete="email" placeholder="Email address">
+ <input id="auth-password" type="password" autocomplete="current-password" placeholder="Password (at least 8 characters)">
+ <div class="auth-actions"><button id="signup">Create account</button><button class="alt" id="signin">Sign in</button></div>
+ <div id="auth-msg" class="notice" aria-live="polite">Your account lets Pneuma securely associate your subscription with your access.</div>
+ <button class="alt hide" id="signout">Sign out</button>
+</div>
+</section>
+
+<div class="steps"><i class="on" id="s1"></i><i id="s2"></i><i id="s3"></i></div>
+
+<section class="card" id="intake">
+<b>Tell me about you</b>
+<label for="job">Current job and industry</label><input id="job" placeholder="e.g. Customer service agent, banking">
+<div class="row"><div><label for="yrs">Years of experience</label><input id="yrs" type="number" min="0" placeholder="5"></div>
+<div><label for="hrs">Study hours per week</label><input id="hrs" type="number" min="1" placeholder="8"></div></div>
+<label for="tasks">Which tasks is AI already taking over?</label><textarea id="tasks" placeholder="e.g. answering FAQs, writing reports"></textarea>
+<label for="skills">Education, skills, languages</label><textarea id="skills"></textarea>
+<div class="row"><div><label for="bud">Budget (GHS or local)</label><input id="bud" placeholder="e.g. GHS 100"></div>
+<div><label for="dev">Device and internet</label><input id="dev" placeholder="Phone, mobile data"></div></div>
+<label for="goal">Your goal</label>
+<select id="goal"><option>Upgrade my current career</option><option>Pivot to a new career</option><option>Freelance or start a business</option></select>
+<label for="loc">Country and city</label><input id="loc" placeholder="Ghana, Cape Coast">
+<button id="go">Get my free AI Exposure Report</button>
+<small id="msg" class="err"></small>
+</section>
+
+<section class="card hide" id="result"><div id="out"></div>
+<div id="lockbox" class="lock hide">
+<b>Unlock the full plan</b>
+<div class="sub">3 career paths, skill gap map, 90-day roadmap, CV and interview assets, and weekly coaching.</div>
+<div class="sub" style="margin-top:8px">Choose Starter, Professional or Business above, then sign in to continue to secure Paystack checkout. Paid access is only activated after server-side payment verification.</div>
+<small id="cm" class="err"></small>
+</div>
+<button class="alt hide" id="full">Generate my full 90-day plan</button>
+</section>
+
+<section class="card hide" id="checkin">
+<b>Weekly check-in</b>
+<label for="done">What did you complete? What blocked you?</label><textarea id="done"></textarea>
+<button id="ci">Update my plan</button><div id="cout" style="margin-top:12px"></div>
+</section>
+<p class="sub">Income and job estimates are guides, not guarantees. Pneuma Group.</p>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let accessToken=localStorage.getItem("pneuma_access_token")||"";
+let currentUser=null;
+const SYS=`You are Pneuma Reskill AI, a career-transition coach by Pneuma Group, helping people whose jobs AI is changing to reskill into safe, growing, paid work. Be practical, encouraging, honest, never vague. Plain language, short steps, mobile-friendly markdown (## headings, - bullets). Never invent statistics; if unsure, say so. Never promise jobs or income: give realistic ranges labelled as estimates. Africa-first realities: mobile data cost, mobile money, informal and remote work. Include at least one local low-capital path. Name free or low-cost learning resources; never cite Wikipedia. Teach AI tools as a multiplier in their own field. Nothing sexual, illegal or deceptive; never help fake credentials. Offer Pneuma Income AI for earning while studying and the Pneuma Business Startup Blueprint for business starters.`;
+let paid=false,profile="",plan="",subscriptionTier="";
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function md(t){let h=esc(t).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").split("\n"),o="",ul=false;
+ for(const l of h){const m=l.match(/^\s*[-•*] (.*)/);
+  if(m){if(!ul){o+="<ul>";ul=true}o+="<li>"+m[1]+"</li>";continue}
+  if(ul){o+="</ul>";ul=false}
+  if(/^#{1,3} /.test(l))o+="<h2>"+l.replace(/^#+ /,"")+"</h2>";else if(l.trim())o+="<p>"+l+"</p>"}
+ return o+(ul?"</ul>":"")}
+function step(n){["s1","s2","s3"].forEach((x,i)=>$(x).classList.toggle("on",i<n))}
+async function run(prompt,el,btn,premium=false,requiredPlan="starter"){
+ btn.disabled=true;let last="";
+ try{const headers={"Content-Type":"application/json"};if(accessToken)headers.Authorization="Bearer "+accessToken;
+  const response=await fetch("/api/coach",{method:"POST",headers,body:JSON.stringify({system:SYS,prompt,premium,requiredPlan})});
+  const data=await response.json();if(!response.ok)throw new Error(data.error||"AI service unavailable");
+  last=data.text||"No response received.";el.innerHTML=md(last)}
+ catch(e){el.innerHTML='<p class="err">'+esc(e.message||"Something went wrong. Please try again.")+'</p>'}
+ btn.disabled=false;return last}
+function gate(){$("lockbox").classList.toggle("hide",paid);$("full").classList.toggle("hide",!paid);$("checkin").classList.toggle("hide",!paid||!plan||!(["professional","business"].includes(subscriptionTier)))}
+$("go").onclick=async()=>{
+ if(!$("job").value.trim()){$("msg").textContent="Please enter your current job.";return}
+ $("msg").textContent="";
+ profile=`Job: ${$("job").value}\nExperience years: ${$("yrs").value}\nAI-affected tasks: ${$("tasks").value}\nSkills: ${$("skills").value}\nStudy hours/week: ${$("hrs").value}\nBudget: ${$("bud").value}\nDevice/internet: ${$("dev").value}\nGoal: ${$("goal").value}\nLocation: ${$("loc").value}`;
+ $("result").classList.remove("hide");step(2);$("result").scrollIntoView({behavior:"smooth"});
+ await run("Person profile:\n"+profile+"\n\nProduce the FREE tier only: (1) AI Exposure Report: risk Low/Medium/High, tasks at risk, tasks that stay safe, tasks that become more valuable with AI. (2) ONE best-fit career path with demand, estimated income range, time to first earning, cost to start. (3) A 7-day starter plan sized to their weekly hours. End with one sentence inviting them to unlock the full plan.",$("out"),$("go"));
+ gate()};
+$("full").onclick=async()=>{step(3);
+ plan=await run("Person profile:\n"+profile+"\n\nProduce the FULL plan: 1) AI Exposure Report. 2) 3 ranked career paths (why it fits, demand in their country, estimated income range, time to first earning, cost to start; one local low-capital). 3) Skill Gap Map (Have/Partial/Missing, ranked by impact). 4) 90-Day Roadmap: weekly plan, resources, one portfolio project per month, weekly self-test. 5) Ready-to-use assets: rewritten CV summary, LinkedIn headline and summary, employer/client pitch, portfolio project brief, 5 interview answers.",$("out"),$("full"),true);gate()};
+$("ci").onclick=async()=>{
+ await run("Person profile:\n"+profile+"\n\nTheir plan so far:\n"+plan.slice(0,6000)+"\n\nWeekly check-in from the person:\n"+$("done").value+"\n\nCelebrate progress briefly, fix blockers, adjust the plan, and set next week's targets.",$("cout"),$("ci"),true,"professional")};
+
+async function authRequest(path,body){
+ const cfg=await fetch("/api/config").then(r=>r.json());
+ if(!cfg.supabaseUrl||!cfg.supabaseAnonKey)throw new Error("Account service is not configured yet. Complete the setup in the deployment guide.");
+ const r=await fetch(cfg.supabaseUrl+path,{method:"POST",headers:{"Content-Type":"application/json",apikey:cfg.supabaseAnonKey},body:JSON.stringify(body)});
+ const d=await r.json();if(!r.ok)throw new Error(d.msg||d.message||d.error_description||"Account request failed.");return d;
+}
+function showAuth(msg,ok=false){$("auth-msg").textContent=msg;$("auth-msg").className="notice "+(ok?"success":"err")}
+async function signIn(){try{const email=$("auth-email").value.trim(),password=$("auth-password").value;
+ if(!email||!password)throw new Error("Enter your email and password.");
+ const d=await authRequest("/auth/v1/token?grant_type=password",{email,password});accessToken=d.access_token;localStorage.setItem("pneuma_access_token",accessToken);currentUser=d.user;showAuth("Signed in as "+email,true);$("signout").classList.remove("hide");await refreshEntitlement();}
+ catch(e){showAuth(e.message)}}
+async function signUp(){try{const email=$("auth-email").value.trim(),password=$("auth-password").value;
+ if(!email||password.length<8)throw new Error("Enter a valid email and a password with at least 8 characters.");
+ const d=await authRequest("/auth/v1/signup",{email,password});
+ if(d.access_token){accessToken=d.access_token;localStorage.setItem("pneuma_access_token",accessToken);currentUser=d.user;showAuth("Account created and signed in.",true);$("signout").classList.remove("hide");}
+ else showAuth("Account created. Check your email to confirm it, then sign in.",true);
+ }catch(e){showAuth(e.message)}}
+async function refreshEntitlement(){if(!accessToken){paid=false;gate();return}
+ try{const r=await fetch("/api/me",{headers:{Authorization:"Bearer "+accessToken}});const d=await r.json();if(!r.ok)throw new Error(d.error||"Could not load account.");paid=!!d.premium;subscriptionTier=d.subscription?.plan||"";currentUser=d.user||currentUser;gate();showAuth(paid?"Premium access active. Your plan: "+d.subscription.plan:"Signed in. No active paid plan yet.",true)}catch(e){paid=false;gate();showAuth(e.message)}}
+$("signup").onclick=signUp;$("signin").onclick=signIn;
+$("signout").onclick=()=>{accessToken="";currentUser=null;paid=false;subscriptionTier="";localStorage.removeItem("pneuma_access_token");$("signout").classList.add("hide");showAuth("You are signed out.");gate()};
+document.querySelectorAll(".buy").forEach(button=>button.addEventListener("click",async()=>{
+ const tier=button.dataset.tier,cycle=button.dataset.cycle;
+ if(!accessToken){showAuth("Please create an account or sign in before choosing a paid plan.");$("authbox").scrollIntoView({behavior:"smooth"});return}
+ button.disabled=true;button.textContent="Opening secure checkout…";
+ try{const r=await fetch("/api/checkout",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+accessToken},body:JSON.stringify({tier,cycle})});const d=await r.json();if(!r.ok)throw new Error(d.error||"Checkout could not be started.");window.location.href=d.authorization_url;}
+ catch(e){showAuth(e.message);button.disabled=false;button.textContent=cycle==="monthly"?"Choose monthly":"Choose annual"}
+}));
+
+refreshEntitlement();
+gate();
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js").catch(()=>{}));}
+</script></body></html>
